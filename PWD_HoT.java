@@ -18,7 +18,7 @@ public class ablak {
 		}
 	}
 	public static void pwdprompt() {
-		//Keret felÈpÌtÈse
+		//Keret fel√©p√≠t√©se
 		JFrame pwdprmt = new JFrame("Password prompt");
 		pwdprmt.setPreferredSize(new Dimension(500, 250));
 		pwdprmt.setResizable(false);
@@ -26,22 +26,22 @@ public class ablak {
 		pwdprmt.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		pwdprmt.setLayout(null);
 		
-		JLabel label = new JLabel("JelszÛ: ");
+		JLabel label = new JLabel("Jelsz√≥: ");
 		label.setBounds(140,75, 150,30);
 		label.setFont(new Font("Ubuntu", Font.BOLD, 15));
 		JPasswordField password = new JPasswordField();
 		password.setBounds(200,75, 150,30);
 		password.setFont(new Font("Ubuntu", Font.BOLD, 15));
-		JButton submit = new JButton("BelÈpÈs");
+		JButton submit = new JButton("Bel√©p√©s");
 		submit.setBounds(0,180, 484,30);
 		submit.setFont(new Font("Ubuntu", Font.BOLD, 15));
 		
-		//Elemek ablakhoz ad·sa
+		//Elemek ablakhoz ad√°sa
 		pwdprmt.add(label);
 		pwdprmt.add(password);
 		pwdprmt.add(submit);
 		
-		//Ablak lez·r·sa/ˆssze·llÌt·sa
+		//Ablak lez√°r√°sa/√∂ssze√°ll√≠t√°sa
 		pwdprmt.pack();
 		pwdprmt.setLocationRelativeTo(null);
 		pwdprmt.setVisible(true);
@@ -70,7 +70,7 @@ public class ablak {
 	}
 	
 	public static void headandties() {
-		//Keret felÈpÌtÈse
+		//Keret fel√©p√≠t√©se
 		JFrame hat = new JFrame("Flip coin");
 		hat.setPreferredSize(new Dimension(500, 250));
 		hat.setResizable(false);
@@ -79,24 +79,24 @@ public class ablak {
 		hat.setLayout(null);
 		
 		//Ablak elemek
-		JButton flip = new JButton("…rme feldob·sa");
+		JButton flip = new JButton("√ârme feldob√°sa");
 		flip.setBounds(0,0, 484,211);
 		flip.setFont(new Font("Ubuntu", Font.BOLD, 15));
 		JLabel headorties = new JLabel("", SwingConstants.CENTER);
 		headorties.setBounds(0,0, 484,211);
 		headorties.setFont(new Font("Ubuntu", Font.BOLD, 15));
-		JButton newflip = new JButton("⁄j Èrme dob·s");
+		JButton newflip = new JButton("√öj √©rme dob√°s");
 		newflip.setBounds(0,180, 484,30);
 		newflip.setFont(new Font("Ubuntu", Font.BOLD, 15));
 		newflip.setVisible(false);
 		
 		
-		//Elemek ablakhoz ad·sa
+		//Elemek ablakhoz ad√°sa
 		hat.add(headorties);
 		hat.add(flip);
 		hat.add(newflip);
 		
-		//Ablak lez·r·sa/ˆssze·llÌt·sa
+		//Ablak lez√°r√°sa/√∂ssze√°ll√≠t√°sa
 		hat.pack();
 		hat.setLocationRelativeTo(null);
 		hat.setVisible(true);
@@ -114,7 +114,7 @@ public class ablak {
 				if(rnd<=50) {
 					headorties.setText("FEJ");
 				}else {
-					headorties.setText("ÕR¡S");
+					headorties.setText("√çR√ÅS");
 				}
 				newflip.setVisible(true);
 			}
