@@ -43,11 +43,6 @@ public class Megoldas {
 			    	if (st.month == 05) {
 			    		join_may = true;
 					}
-			    	if(join_may == true) {
-			    		join_ans = "Májusban volt csatlakozás!";
-				    }else {
-				    	join_ans = "Májusban nem volt csatlakozás!";
-				    }
 			    	if (st.year > join_last_date) {
 			    		join_last_date = st.year;
 			    		join_last_cname = st.cname;
@@ -58,7 +53,7 @@ public class Megoldas {
 			    System.out.println("3. feladat: EU tagállamainak száma: "+al.size()+" db");
 			    System.out.println("4. feladat: 2007-ben "+count_join+" ország csatlakozott.");
 			    System.out.println("5. feladat: Magyarország csatlakozásának dátuma: "+hu_join_date);
-			    System.out.println("6. feladat: "+join_ans);
+			    System.out.println(join_may ? "6. feladat: Májusban volt csatlakozás!" : "6. feladat: Májusban nem volt csatlakozás!");
 			    System.out.println("7. feladat: Legutoljára csatlakozott ország: "+join_last_cname);
 			    System.out.println("8. feladat: Statisztika");
 			    Set<Integer> set = new HashSet<Integer>(years);
@@ -87,4 +82,4 @@ class Datalist{
         this.month=Integer.parseInt(date.split("\\.")[1]);
         this.day=Integer.parseInt(date.split("\\.")[2]);
     }  
-}
+} 
