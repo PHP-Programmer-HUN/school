@@ -15,21 +15,18 @@ public class Megoldas {
 		ArrayList<Datalist> al=new ArrayList<Datalist>();
 		ArrayList<Integer> years = new ArrayList<Integer>();
 		
-		try (FileInputStream fis = new FileInputStream("EUcsatlakozas.txt");
-				InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
-			    BufferedReader reader = new BufferedReader(isr)) {
+		try (FileInputStream fis = new FileInputStream("EUcsatlakozas.txt"); InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8); BufferedReader reader = new BufferedReader(isr)) {
 			    String str;
 			    while ((str = reader.readLine()) != null) {
 			    	al.add(new Datalist(str.split(";")[0],str.split(";")[1]));
 			    	years.add(Integer.parseInt(str.split(";")[1].split("\\.")[0]));
 			    }
 			    
-			    Iterator itr=al.iterator();
+			    Iterator<Datalist> itr=al.iterator();
 			    			    
 			    int count_join = 0;
 			    String hu_join_date = "";
 			    boolean join_may = false;
-			    String join_ans = "";
 			    int join_last_date = 0;
 			    String join_last_cname = "";
 			    while(itr.hasNext()){  
@@ -42,12 +39,12 @@ public class Megoldas {
 			    	}
 			    	if (st.month == 05) {
 			    		join_may = true;
-					}
+			    	}
 			    	if (st.year > join_last_date) {
 			    		join_last_date = st.year;
 			    		join_last_cname = st.cname;
-					}
-		        }
+			    	}
+			    }
 			    
 			    //Kiírások
 			    System.out.println("3. feladat: EU tagállamainak száma: "+al.size()+" db");
