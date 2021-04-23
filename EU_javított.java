@@ -7,30 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Megoldas {
-	
-	public static <T> ArrayList<T> removeDuplicates(ArrayList<T> years)
-    {
-  
-        // Create a new LinkedHashSet
-        Set<T> set = new LinkedHashSet<>();
-  
-        // Add the elements to set
-        set.addAll(years);
-  
-        // Clear the list
-        years.clear();
-  
-        // add the elements of set
-        // with no duplicates to the list
-        years.addAll(set);
-  
-        // return the list
-        return years;
-    }
 
 	public static void main(String[] args) {
 		ArrayList<Datalist> al=new ArrayList<Datalist>();
@@ -55,37 +34,37 @@ public class Megoldas {
 			    String join_last_cname = "";
 			    while(itr.hasNext()){  
 			    	Datalist st=(Datalist)itr.next();
-			    	if (Integer.parseInt(st.date.split("\\.")[0]) == 2007) {
+			    	if (st.year == 2007) {
 			    		count_join++;
 					}
-			    	if (st.cname.toLowerCase().equals("magyarorsz�g")) {
+			    	if (st.cname.toLowerCase().equals("magyarország")) {
 			    		hu_join_date = st.date;
 			    	}
-			    	if (Integer.parseInt(st.date.split("\\.")[1]) == 05) {
+			    	if (st.month == 05) {
 			    		join_may = true;
 					}
 			    	if(join_may == true) {
-			    		join_ans = "M�jusban volt csatlakoz�s!";
+			    		join_ans = "Májusban volt csatlakozás!";
 				    }else {
-				    	join_ans = "M�jusban nem volt csatlakoz�s!";
+				    	join_ans = "Májusban nem volt csatlakozás!";
 				    }
-			    	if (Integer.parseInt(st.date.split("\\.")[0]) > join_last_date) {
-			    		join_last_date = Integer.parseInt(st.date.split("\\.")[0]);
+			    	if (st.year > join_last_date) {
+			    		join_last_date = st.year;
 			    		join_last_cname = st.cname;
 					}
 		        }
-			    //ArrayList<Integer> newList = removeDuplicates(years);
-			    System.out.println("3. feladat: EU tag�llamainak sz�ma: "+al.size()+" db");
-			    System.out.println("4. feladat: 2007-ben "+count_join+" orsz�g csatlakozott.");
-			    System.out.println("5. feladat: Magyarorsz�g csatlakoz�s�nak d�tuma: "+hu_join_date);
+			    
+			    //Kiírások
+			    System.out.println("3. feladat: EU tagállamainak száma: "+al.size()+" db");
+			    System.out.println("4. feladat: 2007-ben "+count_join+" ország csatlakozott.");
+			    System.out.println("5. feladat: Magyarország csatlakozásának dátuma: "+hu_join_date);
 			    System.out.println("6. feladat: "+join_ans);
-			    System.out.println("7. feladat: Legutolj�ra csatlakozott orsz�g: "+join_last_cname);
+			    System.out.println("7. feladat: Legutoljára csatlakozott ország: "+join_last_cname);
 			    System.out.println("8. feladat: Statisztika");
 			    Set<Integer> set = new HashSet<Integer>(years);
 			    for (Integer r : set) {
-			        System.out.println("\t"+r + " - " + Collections.frequency(years, r)+" orsz�g");
+			        System.out.println("\t"+r + " - " + Collections.frequency(years, r)+" ország");
 			    }
-			    
 			    
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -98,8 +77,14 @@ public class Megoldas {
 class Datalist{  
     String cname;
     String date;
+    int year;
+    int month;
+    int day;
     Datalist(String cname,String date){  
         this.cname=cname;
         this.date=date;
+        this.year=Integer.parseInt(date.split("\\.")[0]);
+        this.month=Integer.parseInt(date.split("\\.")[1]);
+        this.day=Integer.parseInt(date.split("\\.")[2]);
     }  
-} 
+}
